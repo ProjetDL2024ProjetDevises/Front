@@ -6,25 +6,26 @@ import axios from 'axios';
 function Graph() {
 
     const [selectMon, setSelM] = useState("Dollars");
-    const [monnaies, setMonnaies] = useState(null);
+    const [monnaies, setMonnaies] = useState([]);
 
     const handleChange = (event) => {
         const monnaie = event.target.value;
         setSelM(monnaie);
     };
 
-    // console.log(`test env : ${import.meta.env.REACT_APP_API_ADRESSE}`)
+    console.log(`test env : ${import.meta.env.VITE_APP_API_ADRESSE}`)
     const fetchMonaies = async () => {
         try{
-            const reponse = await axios.get(`${import.meta.env.REACT_APP_API_ADRESSE}/api/donnee`)
+            const reponse = await axios.get(` ${import.meta.env.VITE_APP_API_ADRESSE}api/monnaie`)
             console.log(reponse)
-            setMonnaies(reponse.data)
+            setMonnaies(reponse.data.data)
         } catch{
 
         }
     }
     fetchMonaies()
-
+    //console.log("ezdsdq")
+    //console.log(monnaies)
     return (
         <>
         <div className='global_g'>
