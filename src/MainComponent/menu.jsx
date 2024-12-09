@@ -1,10 +1,17 @@
 import '../App.css';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Menu() {
     const nav = useNavigate();
-    const [activeButton, setActiveButton] = useState('accueil'); // Par défaut, le bouton accueil est actif
+    const location = useLocation(); // Récupérer la localisation actuelle
+    const [activeButton, setActiveButton] = useState('');
+
+    // Définir l'état initial en fonction de l'URL actuelle
+    useEffect(() => {
+        const currentPath = location.pathname.split('/')[1]; // Extraire la première partie après "/"
+        setActiveButton(currentPath || 'accueil'); // Si l'URL est '/', définir 'accueil' par défaut
+    }, [location]);
 
     const handleNavigation = (path, buttonName) => {
         setActiveButton(buttonName); // Mettre à jour le bouton actif

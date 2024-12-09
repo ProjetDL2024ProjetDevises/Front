@@ -6,7 +6,7 @@ function Nouv() {
   return (
     <>
         <div className='global_n'>
-            <input type='file' className='input_n'></input>  
+            <input type='file' className='input_n' accept=".csv"></input>  
         </div>
     </>
   )
