@@ -165,9 +165,34 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-.submitButton{
-  
+.submitButton {
+  background-color: #646464; /* Couleur de fond verte */
+  color: white; /* Texte blanc */
+  padding: 8px 17px; /* Espacement interne */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 0.8em; /* Taille de texte */
+  font-weight: bold; /* Texte en gras */
+  cursor: pointer; /* Curseur pointeur */
+  transition: background-color 0.3s, transform 0.2s; /* Transitions douces */
 }
+
+.submitButton:hover {
+  background-color: #7e7e7e; /* Vert plus clair au survol */
+  transform: scale(1.05); /* Effet d'agrandissement léger */
+}
+
+.submitButton:active {
+  background-color: #004f1a; /* Couleur plus foncée lors du clic */
+  transform: scale(0.95); /* Effet de réduction */
+}
+
+.submitButton:disabled {
+  background-color: #ccc; /* Gris clair pour le bouton désactivé */
+  color: #666; /* Texte gris pour indiquer l'état désactivé */
+  cursor: not-allowed; /* Curseur interdit */
+}
+
 
 /* chargement en attente de réponse api */
 .loader {
