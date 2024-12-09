@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { color } from 'chart.js/helpers';
@@ -7,13 +7,39 @@ import { color } from 'chart.js/helpers';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const LineChart = ({ monnaie }) => {
+  const [taux_change, settaux_change] = useState([]);
+  const [date_change, setdate_change] = useState([]);
+
+  useEffect(() => {
+    const fetchTaux = async () => {
+      let taux = []
+      let date = []
+      try{
+        const reponse = await fetch(` ${import.meta.env.VITE_APP_API_ADRESSE}api/donnee/`)
+        const data = await reponse.json()
+        console.log(data.data.length)
+        for(let i = 0; i < (data.data.length); i++){
+          date[i] = data.data[i].date.date.slice(0, -7)
+          taux[i] = data.data[i].taux
+        }
+        console.log(date)
+        setdate_change(date)
+        settaux_change(taux)
+      }catch{
+
+      }
+    }
+
+    fetchTaux()
+  }, [])
+
   // Données pour les axes X et Y
   const data = {
-    labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'], // Labels pour l'axe X
+    labels: date_change, // Labels pour l'axe X
     datasets: [
       {
         label: monnaie,
-        data: [45, 72, 57, 89, 60, 93, 102],
+        data: taux_change,
         borderColor: 'white',
         backgroundColor: '#303030',
         tension: 0.4,

@@ -18,16 +18,17 @@ function Graph() {
     useEffect(() => {
         const fetchMonaies = async () => {
             try{
-                const reponse = await axios.get(` ${import.meta.env.VITE_APP_API_ADRESSE}api/monnaie`)
-                console.log(reponse)
-                setMonnaies(reponse.data.data)
+                const reponse = await fetch(` ${import.meta.env.VITE_APP_API_ADRESSE}api/monnaie`)
+                const data = await reponse.json()
+                console.log(data)
+                setMonnaies(data.data)
             } catch{
     
             }
         }
 
         fetchMonaies()
-    })
+    }, [])
     //console.log("ezdsdq")
     //console.log(monnaies)
     return (
