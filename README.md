@@ -35,6 +35,12 @@ Le composant `LineChart` est responsable de l'affichage du graphique linéaire r
 - **axios/fetch** : Pour récupérer les données des taux de change depuis l'API backend.
 - **chartjs-plugin-zoom** : Pour ajouter des fonctionnalités de zoom et de déplacement interactif aux graphiques.
 
+## Version
+Projet : 1.0.0
+npm : 10.9.0
+Node : 22.12.0
+VITE v5.4.11
+
 ## Installation
 
 1. Clonez le repository frontend :
