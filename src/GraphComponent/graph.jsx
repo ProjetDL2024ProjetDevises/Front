@@ -5,12 +5,13 @@ import axios from 'axios';
 
 function Graph() {
 
-    const [selectMon, setSelM] = useState("Dollars");
+    const [selectMon, setSelM] = useState("");
     const [monnaies, setMonnaies] = useState([]);
 
     const handleChange = (event) => {
         const monnaie = event.target.value;
         setSelM(monnaie);
+        console.log(selectMon)
     };
 
     // console.log(`test env : ${import.meta.env.VITE_APP_API_ADRESSE}`)
@@ -34,13 +35,14 @@ function Graph() {
     return (
         <>
         <div className='global_g'>
-            <select name="monnaie" id="monnaie" onChange={handleChange} value={selectMon} className='selec'>
+            <select name="monnaie" id="monnaie" onChange={handleChange} className='selec'>
                 <option className='inp_g'>--Please choose an option--</option>
                 {monnaies.map(monnaie => {
-                    return <option className={monnaie}>{monnaie}</option>
+                    return <option key={monnaie} value={monnaie}>{monnaie}</option>
                 })}
             </select>
-            <LineChart monnaie={selectMon}/>
+            {selectMon ? <LineChart monnaie={selectMon}/> : <></>}
+            
         </div>
             
         </>

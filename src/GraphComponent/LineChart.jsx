@@ -9,28 +9,29 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const LineChart = ({ monnaie }) => {
   const [taux_change, settaux_change] = useState([]);
   const [date_change, setdate_change] = useState([]);
-
-  useEffect(() => {
-    const fetchTaux = async () => {
-      let taux = []
-      let date = []
-      try{
-        const reponse = await fetch(` ${import.meta.env.VITE_APP_API_ADRESSE}api/donnee/`)
-        const data = await reponse.json()
-        console.log(data.data.length)
-        for(let i = 0; i < (data.data.length); i++){
-          date[i] = data.data[i].date.date.slice(0, -7)
-          taux[i] = data.data[i].taux
-        }
-        console.log(date)
-        setdate_change(date)
-        settaux_change(taux)
-      }catch{
-
+  const fetchTaux = async () => {
+    let taux = []
+    let date = []
+    try{
+      const reponse = await fetch(` ${import.meta.env.VITE_APP_API_ADRESSE}api/donnee/${monnaie}`)
+      const data = await reponse.json()
+      console.log(data.data)
+      for(let i = 0; i < (data.data.length); i++){
+        date[i] = data.data[i].date.date.slice(0, -7)
+        taux[i] = data.data[i].taux
       }
+      console.log(monnaie)
+      setdate_change(date)
+      settaux_change(taux)
+    }catch(e){
+      console.log("il rentre dedans " + e)
     }
+  }
+  //fetchTaux()
+  useEffect(() => {
+    
 
-    fetchTaux()
+    
   }, [])
 
   // Données pour les axes X et Y
@@ -72,7 +73,9 @@ const LineChart = ({ monnaie }) => {
         },
       },
       y: {
-        beginAtZero: true,
+        beginAtZero: false,
+        min: Math.min(...taux_change),
+        max: Math.max(...taux_change),
         ticks: {
           color: 'white', // Couleur des labels de l'axe Y
         },
