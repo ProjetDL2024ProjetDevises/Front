@@ -1,5 +1,5 @@
 import '../App.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LineChart from './LineChart';
 import axios from 'axios';
 
@@ -13,17 +13,21 @@ function Graph() {
         setSelM(monnaie);
     };
 
-    console.log(`test env : ${import.meta.env.VITE_APP_API_ADRESSE}`)
-    const fetchMonaies = async () => {
-        try{
-            const reponse = await axios.get(` ${import.meta.env.VITE_APP_API_ADRESSE}api/monnaie`)
-            console.log(reponse)
-            setMonnaies(reponse.data.data)
-        } catch{
+    // console.log(`test env : ${import.meta.env.VITE_APP_API_ADRESSE}`)
 
+    useEffect(() => {
+        const fetchMonaies = async () => {
+            try{
+                const reponse = await axios.get(` ${import.meta.env.VITE_APP_API_ADRESSE}api/monnaie`)
+                console.log(reponse)
+                setMonnaies(reponse.data.data)
+            } catch{
+    
+            }
         }
-    }
-    fetchMonaies()
+
+        fetchMonaies()
+    })
     //console.log("ezdsdq")
     //console.log(monnaies)
     return (
