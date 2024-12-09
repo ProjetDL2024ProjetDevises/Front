@@ -51,7 +51,7 @@ Le composant `LineChart` est responsable de l'affichage du graphique linéaire r
 
 3. Lancez le serveur de développement React :
    ```
-   npm start
+   npm run dev
    ```
 
 ## Authors
