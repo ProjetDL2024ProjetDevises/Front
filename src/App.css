@@ -1,0 +1,215 @@
+
+html {
+  background-color: white !important;
+  overflow-x: hidden;
+}
+
+body {
+  display: block;
+  place-items:unset;
+  min-height: unset;
+  min-width: unset;
+  background-color: white;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+.global_app {
+  /* background-color: white; */
+}
+
+
+/* entete */
+.entete {
+  width: 100%;
+  height: 20vh;
+  background-color: #303030;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 2%;
+}
+
+/* .global_m {
+  background-color: #303030;
+} */
+
+.blanc {
+  padding: 10px;
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
+.img_e {
+  height: 50px;
+}
+
+.titre_e {
+  /* margin: 0 auto; */
+  font-size: 2em;
+}
+
+.titre_m {
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 5px;
+  /* border: 1px solid; */
+  /* border-color: rgb(255, 255, 255, 0.8); */
+  font-size: 0.9em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.titre_m:hover {
+  background-color: #f0f0f0;
+}
+
+.titre_m.active {
+  color: white;
+  background-color: #005f25; /* Couleur bleue pour le bouton actif */
+  /* border-radius: 5px; */
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  color: #303030;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.graph {
+  width: 100%;
+  text-align: center;
+}
+
+.global_e {
+  background-color: rgb(255, 255, 255, 0.8);
+  margin-bottom: 2%;
+  border: 1px solid;
+  border-color: #303030;
+}
+
+.global_n {
+  background-color: #303030;
+  padding: 10px;
+  margin: 0 auto;
+  width: 50%;
+  border-radius: 5px;
+  /* align-items: center; */
+  text-align: center;
+}
+
+.input_n {
+  /* background-color: red; */
+
+}
+
+.global_g {
+  text-align: center;
+  /* margin-top: 2%; */
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
+
+/* corps */
+.global_c {
+  background-color: rgb(255, 255, 255, 0.8);
+  width: 100%;
+}
+
+.bvn {
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+  color: #303030;
+}
+
+.bvn_c {
+  text-align: center;
+  font-weight: 100;
+  margin-bottom: 2%;
+  color: #303030;
+}
+
+.centre {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  margin: 0 auto;
+}
+
+.img_c {
+  height: 500px;
+  max-width: 100%; /* Évite que l'image dépasse la largeur de son conteneur */
+  object-fit: contain; /* Ajuste l'image pour rester dans le cadre sans déformation */
+  margin-bottom: 2%;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #303030;
+}
+
+
+/* graphique */
+.inp_g {
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.selec {
+  text-align: center;
+}
+
+.submitButton {
+  background-color: #646464; /* Couleur de fond verte */
+  color: white; /* Texte blanc */
+  padding: 8px 17px; /* Espacement interne */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 0.8em; /* Taille de texte */
+  font-weight: bold; /* Texte en gras */
+  cursor: pointer; /* Curseur pointeur */
+  transition: background-color 0.3s, transform 0.2s; /* Transitions douces */
+}
+
+.submitButton:hover {
+  background-color: #7e7e7e; /* Vert plus clair au survol */
+  transform: scale(1.05); /* Effet d'agrandissement léger */
+}
+
+.submitButton:active {
+  background-color: #004f1a; /* Couleur plus foncée lors du clic */
+  transform: scale(0.95); /* Effet de réduction */
+}
+
+.submitButton:disabled {
+  background-color: #ccc; /* Gris clair pour le bouton désactivé */
+  color: #666; /* Texte gris pour indiquer l'état désactivé */
+  cursor: not-allowed; /* Curseur interdit */
+}
+
+
+/* chargement en attente de réponse api */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
