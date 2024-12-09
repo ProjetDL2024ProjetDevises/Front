@@ -13,7 +13,7 @@ function Entete() {
           </div>
           <Menu />
         </div>
-        <div className='blanc'></div>
+        {/* <div className='blanc'></div> */}
         
     </>
   )
