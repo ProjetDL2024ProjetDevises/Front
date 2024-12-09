@@ -5,7 +5,7 @@ import Entete from './MainComponent/entete'
 import Corps from './MainComponent/corps'
 import Pied from './MainComponent/pied'
 import Graph from './GraphComponent/graph';
-import Nouv from './NouvComponent/Nouv';
+import Nouv from './NouvComponent/nouv';
 
 import './App.css'
 
